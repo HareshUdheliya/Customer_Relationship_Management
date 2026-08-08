@@ -1,0 +1,14 @@
+/* Profile Page Styles */
+.profile-user-avatar-lg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #696cff 0%, #3939ac 100%);
+  margin: 0 auto;
+}

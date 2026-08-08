@@ -1,0 +1,249 @@
+/* ===========================================================
+   CRM Master Stylesheet
+   Global styles & utility definitions across CRM modules
+   =========================================================== */
+
+:root {
+  --crm-primary: #696cff;
+  --crm-primary-hover: #5f61e6;
+  --crm-primary-light: #e7e7ff;
+  --crm-sidebar-bg: #2b2c40;
+  --crm-sidebar-text: #c7c9e8;
+  --crm-bg-body: #f5f5f9;
+  --crm-card-border: #eceef1;
+}
+
+body {
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  background-color: var(--crm-bg-body);
+  color: #566a7f;
+}
+
+.layout-content-navbar .content-wrapper,
+.layout-page,
+.layout-container,
+.container-fluid.flex-grow-1.container-p-y,
+.card,
+.table,
+.form-control,
+.form-select,
+.input-group,
+.modal-content,
+.dropdown-menu,
+.offcanvas {
+  background-color: var(--crm-bg-body) !important;
+}
+
+/* ---------- Navigation & Navbar ---------- */
+.layout-menu {
+  background-color: var(--crm-sidebar-bg) !important;
+}
+
+.layout-menu .app-brand-text {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.layout-menu .app-brand-text span {
+  color: var(--crm-primary);
+}
+
+.layout-menu .menu-link {
+  color: var(--crm-sidebar-text) !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.layout-menu .menu-item.active > .menu-link {
+  background-color: var(--crm-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(105, 108, 255, 0.4);
+}
+
+.layout-menu .menu-link:hover,
+.layout-menu .menu-item:not(.active):not(.open) .menu-link:hover {
+  color: #fff !important;
+  background-color: rgba(105, 108, 255, 0.18) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.navbar-nav .nav-login-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-nav-login {
+  color: var(--crm-primary);
+  background: var(--crm-primary-light);
+  border: 1px solid rgba(105, 108, 255, 0.2);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-nav-login:hover {
+  background: var(--crm-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(105, 108, 255, 0.3);
+}
+
+/* ---------- Stat Cards ---------- */
+.crm-stat-card {
+  border-radius: 12px;
+  border: 1px solid var(--crm-card-border);
+  background-color: #ffffff;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.crm-stat-card:hover {
+  box-shadow: 0 6px 20px rgba(67, 89, 113, 0.1);
+  transform: translateY(-3px);
+}
+
+.crm-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* ---------- Badges & Status Tags ---------- */
+.badge-lead-new {
+  background-color: #e7e7ff;
+  color: #696cff;
+}
+.badge-lead-contacted {
+  background-color: #fff3e0;
+  color: #ff9f43;
+}
+.badge-lead-qualified {
+  background-color: #e0f7ee;
+  color: #28c76f;
+}
+.badge-lead-lost {
+  background-color: #ffe0e0;
+  color: #ea5455;
+}
+
+.badge-status-pending {
+  background-color: #fff3e0;
+  color: #ff9f43;
+}
+.badge-status-in-progress {
+  background-color: #e7e7ff;
+  color: #696cff;
+}
+.badge-status-completed {
+  background-color: #e0f7ee;
+  color: #28c76f;
+}
+.badge-status-cancelled {
+  background-color: #f1f2f4;
+  color: #8592a3;
+}
+
+/* ---------- Table Styling ---------- */
+.crm-table thead th {
+  text-transform: uppercase;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #8592a3;
+  border-bottom: 1px solid var(--crm-card-border);
+  background-color: #fcfcfd;
+}
+
+.crm-table td,
+.crm-table th {
+  vertical-align: middle;
+}
+
+.crm-avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #696cff 0%, #8592a3 100%);
+}
+
+/* ---------- Authentication Pages (Login & Register) ---------- */
+.crm-auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f9 0%, #e7e7ff 100%);
+  padding: 24px;
+}
+
+.crm-auth-card {
+  max-width: 440px;
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(67, 89, 113, 0.12);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.crm-auth-card .card-header-brand {
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.crm-notif-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    display: none;
+}
+
+.crm-notif-menu {
+    min-width: 260px;
+}
+
+.navbar-nav .avatar.avatar-sm {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+}
+
+    .navbar-nav .avatar.avatar-sm .avatar-initial {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: #fff;
+
+

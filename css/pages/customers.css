@@ -1,0 +1,11 @@
+/* Customers Page Styles */
+.customers-search-bar {
+  max-width: 320px;
+}
+
+.customer-status-pill {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}

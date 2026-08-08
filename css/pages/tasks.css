@@ -1,0 +1,9 @@
+/* Tasks Page Styles */
+.task-item-card {
+  border-left: 3px solid #696cff;
+}
+
+.task-item-card.completed {
+  border-left: 3px solid #28c76f;
+  opacity: 0.75;
+}

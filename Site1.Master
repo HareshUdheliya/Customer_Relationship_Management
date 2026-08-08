@@ -1,0 +1,172 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site1.Master.cs" Inherits="CRM_PROJECT.Site1" %>
+
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/vendor/iconify-icons.css" />
+    <link rel="stylesheet" href="css/vendor/core.css" />
+    <link rel="stylesheet" href="css/vendor/demo.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/vendor/apex-charts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <aside id="layout-menu" class="layout-menu menu-vertical menu">
+                    <div class="app-brand demo">
+                        <a href="Default.aspx" class="app-brand-link">
+                            <i class="bx bx-bxs-dashboard" style="font-size: 26px; color: #696cff; margin-right: 8px"></i>
+                            <span class="app-brand-text menu-text fw-bold">CRM <span>System</span></span>
+                        </a>
+                    </div>
+                    <div class="menu-inner-shadow"></div>
+                    <ul class="menu-inner py-1">
+                        <li class="menu-item">
+                            <a href="Default.aspx" class="menu-link">
+                                <i class="menu-icon bx bx-bxs-dashboard"></i>
+                                <div>Dashboard</div>
+                            </a>
+                        </li>
+                        <li class="menu-header small text-uppercase"><span class="menu-header-text">CRM Modules</span></li>
+                        <li class="menu-item"><a href="Customers.aspx" class="menu-link"><i class="menu-icon bx bx-user"></i>
+                            <div>Customers</div>
+                        </a></li>
+                        <li class="menu-item"><a href="Leads.aspx" class="menu-link"><i class="menu-icon bx bx-target-lock"></i>
+                            <div>Leads</div>
+                        </a></li>
+                        <li class="menu-item"><a href="Tasks.aspx" class="menu-link"><i class="menu-icon bx bx-task"></i>
+                            <div>Tasks</div>
+                        </a></li>
+                        <li class="menu-item"><a href="Followups.aspx" class="menu-link"><i class="menu-icon bx bx-calendar-check"></i>
+                            <div>Follow-Ups</div>
+                        </a></li>
+                        <li class="menu-item"><a href="Notes.aspx" class="menu-link"><i class="menu-icon bx bx-note"></i>
+                            <div>Customer Notes</div>
+                        </a></li>
+                        <li class="menu-item"><a href="Documents.aspx" class="menu-link"><i class="menu-icon bx bx-folder"></i>
+                            <div>Documents</div>
+                        </a></li>
+
+                        <asp:PlaceHolder ID="phAdminMenu" runat="server">
+                            <li class="menu-item"><a href="Employees.aspx" class="menu-link"><i class="menu-icon bx bx-group"></i>
+                                <div>Employees</div>
+                            </a></li>
+                            <li class="menu-item"><a href="Reports.aspx" class="menu-link"><i class="menu-icon bx bx-bar-chart-alt-2"></i>
+                                <div>Reports</div>
+                            </a></li>
+                            <li class="menu-item"><a href="ActivityLog.aspx" class="menu-link"><i class="menu-icon bx bx-history"></i>
+                                <div>Activity Log</div>
+                            </a></li>
+                            <li class="menu-header small text-uppercase"><span class="menu-header-text">Admin Settings</span></li>
+                            <li class="menu-item"><a href="UserManagement.aspx" class="menu-link"><i class="menu-icon bx bx-user-circle"></i>
+                                <div>User Management</div>
+                            </a></li>
+                        </asp:PlaceHolder>
+                    </ul>
+                </aside>
+
+                <div class="layout-page">
+                    <nav class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                        <%--<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                <li class="nav-item nav-login-group me-2">
+                                    <a class="btn-nav-login" href="Login.aspx">
+                                        <i class="bx bx-log-in"></i><span>Login</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>--%>
+
+
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                <asp:PlaceHolder ID="phLoggedOut" runat="server">
+                                    <li class="nav-item nav-login-group me-2">
+                                        <a class="btn-nav-login" href="Login.aspx">
+                                            <i class="bx bx-log-in"></i><span>Login</span>
+                                        </a>
+                                    </li>
+                                </asp:PlaceHolder>
+
+                                <asp:PlaceHolder ID="phLoggedIn" runat="server" Visible="false">
+                                    <li class="nav-item dropdown me-2">
+                                        <a class="nav-link position-relative" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bx bx-bell bx-sm"></i>
+                                            <span class="crm-notif-dot"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end crm-notif-menu p-2">
+                                            <li class="px-2 py-1 text-muted small fw-semibold">Notifications</li>
+                                            <li>
+                                                <hr class="dropdown-divider my-1" />
+                                            </li>
+                                            <li class="px-2 py-3 text-center text-muted small">No new notifications</li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link d-flex align-items-center gap-2" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="avatar avatar-sm"><span class="avatar-initial rounded-circle bg-primary">
+                                                <asp:Literal ID="litNavUserInitial" runat="server" /></span></span>
+                                            <span class="d-none d-md-inline fw-semibold">
+                                                <asp:Literal ID="litNavUserName" runat="server" /></span>
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li class="px-3 py-2">
+                                                <strong>
+                                                    <asp:Literal ID="litNavUserNameFull" runat="server" /></strong>
+                                                <div class="text-muted small">
+                                                    <asp:Literal ID="litNavUserRole" runat="server" />
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li><a class="dropdown-item" href="Profile.aspx"><i class="bx bx-user me-2"></i>My Profile</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="btnLogout" CssClass="dropdown-item text-danger" OnClick="btnLogout_Click">
+                                <i class="bx bx-log-out me-2"></i>Logout
+                                                </asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </asp:PlaceHolder>
+                            </ul>
+                        </div>
+
+                    </nav>
+
+                    <div class="content-wrapper">
+                        <div class="container-fluid flex-grow-1 container-p-y">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/popper.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/perfect-scrollbar.js"></script>
+        <script src="js/vendor/helpers.js"></script>
+        <script src="js/vendor/menu.js"></script>
+        <script src="js/main.js"></script>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

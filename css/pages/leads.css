@@ -1,0 +1,10 @@
+/* Leads Page Styles */
+.lead-pipeline-card {
+  border-left: 4px solid var(--crm-primary);
+}
+
+.lead-stage-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

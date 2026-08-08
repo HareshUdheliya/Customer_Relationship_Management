@@ -1,0 +1,11 @@
+/* Documents Page Styles */
+.doc-file-card {
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #eceef1;
+}
+
+.doc-file-icon {
+  font-size: 32px;
+  color: var(--crm-primary);
+}
