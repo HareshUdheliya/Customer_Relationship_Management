@@ -11,7 +11,17 @@ namespace CRM_PROJECT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
 
+            string role = Session["Role"]?.ToString() ?? "user";
+            if (!role.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                Response.Redirect("UserDashboard.aspx");
+            }
         }
     }
 }

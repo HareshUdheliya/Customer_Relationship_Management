@@ -38,7 +38,7 @@
               TextMode="Email"
               CssClass="form-control"
               ID="txtEmail"
-              placeholder="admin@example.com"
+              placeholder="Enter Email"
               Required="true"
             />
           </div>
@@ -73,10 +73,6 @@
             <a href="Register.aspx" class="fw-bold login-register-link"
               >Register Now</a
             >
-          </p>
-          <p class="mb-0 text-muted small" style="font-size: 11.5px">
-            UI preview only — login and role handling will be wired later in
-            ASP.NET.
           </p>
         </div>
       </div>

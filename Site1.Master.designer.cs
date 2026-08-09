@@ -39,5 +39,6 @@ namespace CRM_PROJECT
         protected global::System.Web.UI.WebControls.Literal litNavUserNameFull;
         protected global::System.Web.UI.WebControls.Literal litNavUserRole;
         protected global::System.Web.UI.WebControls.LinkButton btnLogout;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor navDashboardLink;
     }
 }

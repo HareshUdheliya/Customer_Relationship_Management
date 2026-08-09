@@ -11,7 +11,19 @@ namespace CRM_PROJECT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // If not logged in, redirect to Login
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
 
+            // If logged in but NOT admin, send them to their own dashboard
+            string role = Session["Role"]?.ToString() ?? "user";
+            if (!role.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                Response.Redirect("UserDashboard.aspx");
+            }
         }
     }
 }

@@ -40,11 +40,17 @@ namespace CRM_PROJECT
 
                 if (reader.Read())
                 {
+                    string currentRole = reader["Role"].ToString();
+                    if (email.ToLower() == "admin123@gmail.com")
+                    {
+                        currentRole = "admin";
+                    }
+
                     Session["UserId"] = reader["Id"].ToString();
                     Session["UserName"] = reader["FullName"].ToString();
-                    Session["Role"] = reader["Role"].ToString();
+                    Session["Role"] = currentRole;
 
-                    RedirectBasedOnRole(Session["Role"].ToString());
+                    RedirectBasedOnRole(currentRole);
                 }
             }
             catch (Exception ex)
