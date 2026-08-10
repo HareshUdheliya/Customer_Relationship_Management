@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CRM_PROJECT.Default" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"
+AutoEventWireup="true" CodeBehind="Default.aspx.cs"
+Inherits="CRM_PROJECT.Default" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
   <title>Dashboard | CRM System</title>
@@ -100,4 +100,3 @@
   <script src="js/dashboard.js"></script>
   <script src="js/pages/index.js"></script>
 </asp:Content>
-
