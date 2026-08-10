@@ -16,7 +16,7 @@
     <div>
       <h4 class="mb-0">Dashboard</h4>
       <span class="text-muted"
-        >Welcome back, Admin. Here's what's happening today.</span
+        >Welcome back, Admin. Here's what happening today.</span
       >
     </div>
     <button class="btn btn-primary">
