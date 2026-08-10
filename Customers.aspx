@@ -14,7 +14,7 @@
     <div>
       <h4 class="mb-0">Customers</h4>
       <span class="text-muted"
-        >Manage customer records and account activity.</span
+        >Manage customer records and accounts activity.</span
       >
     </div>
     <button
