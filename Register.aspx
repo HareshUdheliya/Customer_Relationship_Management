@@ -116,7 +116,7 @@
     </div>
   </div>
 
-    <asp:GridView ID="Usergv" runat="server" AutoGenerateColumns="False">
+    <asp:GridView ID="Usergv" runat="server" AutoGenerateColumns="False" OnRowCommand="Usergv_RowCommand">
         <Columns>
             <asp:TemplateField HeaderText="UserID">
                 <ItemTemplate>
@@ -136,6 +136,17 @@
             <asp:TemplateField HeaderText="Password">
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField HeaderText="Edit">
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_edt">Edit</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
             

@@ -32,7 +32,6 @@ namespace CRM_PROJECT
 
                     phAdminMenu.Visible = isAdmin;
 
-                    // Set the Dashboard link based on role
                     navDashboardLink.HRef = isAdmin ? "Default.aspx" : "UserDashboard.aspx";
                 }
                 else
