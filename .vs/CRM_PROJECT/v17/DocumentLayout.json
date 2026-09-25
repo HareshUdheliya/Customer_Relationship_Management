@@ -3,60 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\site1.master.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:site1.master.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\usermanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:usermanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\reports.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:reports.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\employees.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:employees.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\register.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\register.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:register.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\activitylog.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:activitylog.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|c:\\users\\hares\\source\\repos\\crm_project\\activitylog.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:activitylog.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\login.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:login.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA8CDE5-E4A2-487A-BB77-0F4A394CBE21}|CRM_PROJECT.csproj|solutionrelative:default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -65,7 +37,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 87,
+          "DockedWidth": 2,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -75,129 +47,25 @@
           ]
         },
         {
-          "DockedWidth": 313,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 302,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx",
-              "RelativeDocumentMoniker": "Login.aspx",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx",
-              "RelativeToolTip": "Login.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-08-09T11:37:58.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Login.aspx.cs",
               "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx.cs",
               "RelativeDocumentMoniker": "Login.aspx.cs",
               "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx.cs",
               "RelativeToolTip": "Login.aspx.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwE4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAqwCUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-08T22:53:11.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Register.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Register.aspx.cs",
-              "RelativeDocumentMoniker": "Register.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Register.aspx.cs",
-              "RelativeToolTip": "Register.aspx.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAuwF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-08T22:39:12.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Site1.Master.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.cs",
-              "RelativeDocumentMoniker": "Site1.Master.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.cs",
-              "RelativeToolTip": "Site1.Master.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAEwCUAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-08T23:03:21.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Site1.Master.designer.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.designer.cs",
-              "RelativeDocumentMoniker": "Site1.Master.designer.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.designer.cs",
-              "RelativeToolTip": "Site1.Master.designer.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAswCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-08T23:03:45.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Default.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Default.aspx.cs",
-              "RelativeDocumentMoniker": "Default.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Default.aspx.cs",
-              "RelativeToolTip": "Default.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T12:56:12.695Z",
+              "WhenOpened": "2026-08-14T04:42:42.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Employees.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Employees.aspx.cs",
-              "RelativeDocumentMoniker": "Employees.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Employees.aspx.cs",
-              "RelativeToolTip": "Employees.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T12:56:46.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Reports.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Reports.aspx.cs",
-              "RelativeDocumentMoniker": "Reports.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Reports.aspx.cs",
-              "RelativeToolTip": "Reports.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T12:57:18.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserManagement.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\UserManagement.aspx.cs",
-              "RelativeDocumentMoniker": "UserManagement.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\UserManagement.aspx.cs",
-              "RelativeToolTip": "UserManagement.aspx.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T12:57:51.738Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Site1.Master",
               "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master",
               "RelativeDocumentMoniker": "Site1.Master",
@@ -210,46 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ActivityLog.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\ActivityLog.aspx.cs",
-              "RelativeDocumentMoniker": "ActivityLog.aspx.cs",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\ActivityLog.aspx.cs",
-              "RelativeToolTip": "ActivityLog.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Site1.Master.cs",
+              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.cs",
+              "RelativeDocumentMoniker": "Site1.Master.cs",
+              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Site1.Master.cs",
+              "RelativeToolTip": "Site1.Master.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T12:54:13.271Z",
+              "WhenOpened": "2026-08-08T23:03:21.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ActivityLog.aspx",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\ActivityLog.aspx",
-              "RelativeDocumentMoniker": "ActivityLog.aspx",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\ActivityLog.aspx",
-              "RelativeToolTip": "ActivityLog.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-08-09T12:52:59.693Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\css\\style.css",
-              "RelativeDocumentMoniker": "css\\style.css",
-              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\css\\style.css",
-              "RelativeToolTip": "css\\style.css",
-              "ViewState": "AgIAAOMAAAAAAAAAAADwv/kAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-08-08T23:04:05.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "Register.aspx",
               "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Register.aspx",
               "RelativeDocumentMoniker": "Register.aspx",
@@ -258,6 +100,45 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-08-08T21:53:54.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx.designer.cs",
+              "RelativeDocumentMoniker": "Login.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Login.aspx.designer.cs",
+              "RelativeToolTip": "Login.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-14T04:43:34.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Register.aspx.cs",
+              "RelativeDocumentMoniker": "Register.aspx.cs",
+              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Register.aspx.cs",
+              "RelativeToolTip": "Register.aspx.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAiwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-08T22:39:12.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "Default.aspx.cs",
+              "ToolTip": "C:\\Users\\hares\\source\\repos\\CRM_PROJECT\\Default.aspx.cs",
+              "RelativeToolTip": "Default.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T12:56:12.695Z",
               "EditorCaption": ""
             }
           ]
