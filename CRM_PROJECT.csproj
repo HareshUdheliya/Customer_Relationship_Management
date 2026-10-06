@@ -72,6 +72,7 @@
     <Content Include="App_Data\CRM_Database_log.ldf">
       <DependentUpon>CRM_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="css\crm-extra.css" />
     <Content Include="css\pages\activity-log.css" />
     <Content Include="css\pages\customers.css" />
     <Content Include="css\pages\documents.css" />

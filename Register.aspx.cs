@@ -1,93 +1,93 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CRM_PROJECT
 {
     public partial class Register : System.Web.UI.Page
     {
-
         SqlConnection con;
-        SqlDataAdapter da;
         SqlCommand cmd;
-        DataSet ds;
+
         string conStr = ConfigurationManager.ConnectionStrings["dbConStr"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                fillGrid();
-            }
+            if (Session["UserId"] != null)
+                Response.Redirect("Default.aspx");
         }
 
-
-        void getCon()
+        string fix(string s)
         {
-            if (con == null)
-            {
-                con = new SqlConnection(conStr);
-            }
-
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
+            return s.Trim().Replace("'", "''");
         }
 
-        void fieldClear()
+        void showMsg(string msg, string type)
         {
-            txtFullName.Text = string.Empty;
-            txtFullName.Text = string.Empty;
-            txtPassword.Text = string.Empty;
-            txtConfirmPassword.Text = string.Empty;
+            litMsg.Text = "<div class='alert alert-" + type + "'>" + msg + "</div>";
         }
 
-        void fillGrid()
-        {
-            getCon();
-            da = new SqlDataAdapter("select * from users", con);
-            ds = new DataSet();
-            da.Fill(ds);
-            Usergv.DataSource = ds;
-            Usergv.DataBind();
-        }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            string fullName = txtFullName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text;
-            string confirmPassword = txtConfirmPassword.Text;
+            string fullName = fix(txtFullName.Text);
+            string email = fix(txtEmail.Text);
+            string phone = fix(txtPhone.Text);
+            string password = fix(txtPassword.Text);
 
-            if (password != confirmPassword) return;
-
-            string role = "user";
-            if (email.ToLower() == "admin123@gmail.com")
+            if (fullName == "" || email == "" || password == "")
             {
-                role = "admin";
+                showMsg("Please fill all required fields.", "warning");
+                return;
             }
 
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                showMsg("Password and confirm password do not match.", "warning");
+                return;
+            }
+
+            if (!chkTerms.Checked)
+            {
+                showMsg("Please accept the Terms of Service.", "warning");
+                return;
+            }
 
             try
             {
-                getCon();
-                cmd = new SqlCommand("INSERT INTO Users (FullName, Email, Password, Role) VALUES ('" + fullName + "', '" + email + "', '" + password + "', '" + role + "')", con);
+                con = new SqlConnection(conStr);
+                con.Open();
+
+                
+                cmd = new SqlCommand("select count(*) from Users where Email = '" + email + "'", con);
+                int found = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (found > 0)
+                {
+                    con.Close();
+                    showMsg("This email is already registered. Please login.", "danger");
+                    return;
+                }
+
+                string role = "user";
+                if (email.ToLower() == "admin@gmail.com")
+                    role = "admin";
+
+                cmd = new SqlCommand("insert into Users (FullName, Email, Phone, Password, Role) values ('"
+                    + fullName + "', '" + email + "', '" + phone + "', '" + password + "', '" + role + "')", con);
                 cmd.ExecuteNonQuery();
-                fillGrid();
-                fieldClear();
+                con.Close();
 
                 Response.Redirect("Login.aspx?registered=1");
             }
+            catch (System.Threading.ThreadAbortException)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
-                // Handle exception
+                showMsg("Error: " + Server.HtmlEncode(ex.Message), "danger");
             }
         }
     }
 }
-

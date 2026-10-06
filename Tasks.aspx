@@ -1,277 +1,117 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Tasks.aspx.cs" Inherits="CRM_PROJECT.Tasks" %>
 
-
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
   <title>Tasks | CRM System</title>
-  <link rel="stylesheet" href="css/pages/tasks.css" />
 </asp:Content>
 
-<asp:Content
-  ID="MainContent"
-  ContentPlaceHolderID="ContentPlaceHolder2"
-  runat="server"
->
-  <div
-    class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
-  >
-    <div>
-      <h4 class="mb-0">Task Management</h4>
-      <span class="text-muted">Create, assign, and monitor tasks</span>
-    </div>
-    <button
-      type="button"
-      class="btn btn-primary btn-sm"
-      data-bs-toggle="modal"
-      data-bs-target="#addTaskModal"
-    >
-      <i class="bx bx-plus me-1"></i>Add Task
-    </button>
-  </div>
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-  <div class="row g-4 mb-2">
-    <div class="col-md-4">
-      <div class="card">
-        <div
-          class="card-header d-flex justify-content-between align-items-center"
-        >
-          <h6 class="mb-0">Pending</h6>
-          <span class="badge bg-label-secondary">2</span>
-        </div>
-        <div class="card-body d-flex flex-column gap-2">
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Send proposal to Nova Traders</p>
-              <small class="text-muted">Due: 18 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  AK
-                </div>
-                <span class="badge badge-lead-lost">High</span>
-              </div>
-            </div>
-          </div>
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Follow up with Karan Mehta</p>
-              <small class="text-muted">Due: 19 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  PP
-                </div>
-                <span class="badge badge-lead-contacted">Medium</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="crm-page-head">
+    <div class="d-flex align-items-center gap-3">
+      <div class="crm-page-icon"><i class="bx bx-task"></i></div>
+      <div>
+        <h4 class="mb-0">Tasks</h4>
+        <span class="text-muted">Create, assign and monitor team tasks.</span>
       </div>
     </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div
-          class="card-header d-flex justify-content-between align-items-center"
-        >
-          <h6 class="mb-0">In Progress</h6>
-          <span class="badge bg-label-secondary">3</span>
-        </div>
-        <div class="card-body d-flex flex-column gap-2">
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Prepare quarterly report</p>
-              <small class="text-muted">Due: 20 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  RN
-                </div>
-                <span class="badge badge-lead-lost">High</span>
-              </div>
-            </div>
-          </div>
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Update customer records</p>
-              <small class="text-muted">Due: 21 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  SR
-                </div>
-                <span class="badge badge-lead-qualified">Low</span>
-              </div>
-            </div>
-          </div>
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Onboard new lead - Bluewave</p>
-              <small class="text-muted">Due: 22 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  AK
-                </div>
-                <span class="badge badge-lead-contacted">Medium</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div
-          class="card-header d-flex justify-content-between align-items-center"
-        >
-          <h6 class="mb-0">Completed</h6>
-          <span class="badge bg-label-secondary">2</span>
-        </div>
-        <div class="card-body d-flex flex-column gap-2">
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Call Sanjay Desai</p>
-              <small class="text-muted">Due: 15 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  PP
-                </div>
-                <span class="badge badge-lead-qualified">Low</span>
-              </div>
-            </div>
-          </div>
-          <div class="card crm-stat-card">
-            <div class="card-body p-3">
-              <p class="mb-1 fw-medium">Send welcome email to Bluewave</p>
-              <small class="text-muted">Due: 16 Jul</small>
-              <div
-                class="d-flex justify-content-between align-items-center mt-2"
-              >
-                <div
-                  class="crm-avatar-sm"
-                  style="width: 26px; height: 26px; font-size: 10px"
-                >
-                  SR
-                </div>
-                <span class="badge badge-lead-contacted">Medium</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="crm-total-pill">
+      <span class="text-muted">Total records</span>
+      <strong><asp:Literal ID="litTotal" runat="server" Text="0" /></strong>
     </div>
   </div>
 
-  <div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add Task</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+  <asp:Literal ID="litMsg" runat="server" />
+
+  <div class="card crm-panel mb-4">
+    <div class="card-header crm-panel-head">
+      <h5 class="mb-0"><i class="bx bx-edit me-2"></i><asp:Label ID="lblFormTitle" runat="server" Text="Add New Task" /></h5>
+    </div>
+    <div class="card-body">
+      <asp:Panel ID="pnlForm" runat="server" DefaultButton="btnSave">
+        <div class="row g-3">
+        <div class="col-md-8">
+          <label class="form-label">Task Title <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" placeholder="e.g. Send proposal to Nova Traders" />
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Task Title</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="e.g. Send proposal to client"
-                />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Due Date</label>
-                <input type="date" class="form-control" placeholder="" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Assigned To</label>
-                <select class="form-select">
-                  <option>Amit Kumar</option>
-                  <option>Priya Patel</option>
-                  <option>Rahul Nair</option>
-                  <option>Sneha Rao</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Priority</label>
-                <select class="form-select">
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Status</label>
-                <select class="form-select">
-                  <option>Pending</option>
-                  <option>In Progress</option>
-                  <option>Completed</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Related Customer</label>
-                <select class="form-select">
-                  <option>Nova Traders</option>
-                  <option>Zen Retail</option>
-                  <option>Bluewave Inc</option>
-                  <option>Orion Ltd</option>
-                </select>
-              </div>
-            </div>
-          </form>
+        <div class="col-md-4">
+          <label class="form-label">Due Date <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="" />
         </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-label-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancel
-          </button>
-          <button type="button" class="btn btn-primary">Add Task</button>
+        <div class="col-md-4">
+          <label class="form-label">Priority</label>
+          <asp:DropDownList ID="ddlPriority" runat="server" CssClass="form-select">
+            <asp:ListItem Value="Low">Low</asp:ListItem>
+            <asp:ListItem Value="Medium">Medium</asp:ListItem>
+            <asp:ListItem Value="High">High</asp:ListItem>
+          </asp:DropDownList>
         </div>
-      </div>
+        <div class="col-md-4">
+          <label class="form-label">Status</label>
+          <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-select">
+            <asp:ListItem Value="Pending">Pending</asp:ListItem>
+            <asp:ListItem Value="In Progress">In Progress</asp:ListItem>
+            <asp:ListItem Value="Completed">Completed</asp:ListItem>
+          </asp:DropDownList>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Assigned To</label>
+          <asp:DropDownList ID="ddlAssignedTo" runat="server" CssClass="form-select"></asp:DropDownList>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Description</label>
+          <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Task details..." />
+        </div>
+        </div>
+        <div class="mt-4 d-flex gap-2 flex-wrap">
+          <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-primary px-4" OnClick="btnSave_Click"><i class="bx bx-save me-1"></i>Save Task</asp:LinkButton>
+          <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-label-secondary px-4" OnClick="btnCancel_Click" CausesValidation="false"><i class="bx bx-x me-1"></i>Cancel</asp:LinkButton>
+        </div>
+      </asp:Panel>
     </div>
   </div>
+
+  <div class="card crm-panel">
+    <div class="card-header crm-panel-head d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <h5 class="mb-0"><i class="bx bx-list-ul me-2"></i>All Tasks</h5>
+      <asp:Panel ID="pnlSearch" runat="server" DefaultButton="btnSearch" CssClass="crm-search-box">
+        <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search..." />
+        <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-primary" OnClick="btnSearch_Click"><i class="bx bx-search"></i></asp:LinkButton>
+        <asp:LinkButton ID="btnReset" runat="server" CssClass="btn btn-label-secondary" OnClick="btnReset_Click"><i class="bx bx-refresh"></i></asp:LinkButton>
+      </asp:Panel>
+    </div>
+    <div class="table-responsive">
+      <asp:GridView ID="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+        CssClass="table crm-table align-middle mb-0" GridLines="None" BorderWidth="0"
+        EmptyDataText="No records found. Add your first record using the form above."
+        OnRowCommand="gv_RowCommand">
+        <Columns>
+        <asp:BoundField DataField="Id" HeaderText="#" />
+        <asp:BoundField DataField="Title" HeaderText="Task" />
+        <asp:BoundField DataField="DueDate" HeaderText="Due Date" DataFormatString="{0:dd MMM yyyy}" HtmlEncode="false" />
+        <asp:TemplateField HeaderText="Priority">
+          <ItemTemplate>
+            <span class='badge st-<%# Eval("Priority").ToString().Replace(" ", "") %>'><%# Eval("Priority") %></span>
+          </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Status">
+          <ItemTemplate>
+            <span class='badge st-<%# Eval("Status").ToString().Replace(" ", "") %>'><%# Eval("Status") %></span>
+          </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="AssignedName" HeaderText="Assigned To" />
+        <asp:TemplateField HeaderText="Actions">
+          <ItemTemplate>
+            <asp:LinkButton runat="server" CommandName="cmd_done" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-ok" ToolTip="Mark Completed"><i class="bx bx-check-circle"></i></asp:LinkButton>
+            <asp:LinkButton runat="server" CommandName="cmd_edt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-edit" ToolTip="Edit"><i class="bx bx-edit-alt"></i></asp:LinkButton>
+            <asp:LinkButton runat="server" CommandName="cmd_dlt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-del" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"><i class="bx bx-trash"></i></asp:LinkButton>
+          </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>
+      </asp:GridView>
+    </div>
+  </div>
+
 </asp:Content>
 
-<asp:Content
-  ID="ScriptContent"
-  ContentPlaceHolderID="ContentPlaceHolder3"
-  runat="server"
->
-  <script src="js/pages/tasks.js"></script>
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
-

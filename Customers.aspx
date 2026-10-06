@@ -2,145 +2,113 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
   <title>Customers | CRM System</title>
-  <link rel="stylesheet" href="css/pages/customers.css" />
 </asp:Content>
 
-<asp:Content
-  ID="MainContent"
-  ContentPlaceHolderID="ContentPlaceHolder2"
-  runat="server"
->
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h4 class="mb-0">Customers</h4>
-      <span class="text-muted"
-        >Manage customer records and account activity.</span
-      >
-    </div>
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#addCustomerModal"
-    >
-      <i class="bx bx-plus me-1"></i> Add Customer
-    </button>
-  </div>
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-  <div class="card crm-stat-card">
-    <div class="card-body">
-      <table class="table crm-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Owner</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Ritika Shah</td>
-            <td>ritika@example.com</td>
-            <td><span class="badge badge-status-in-progress">Active</span></td>
-            <td>Admin</td>
-          </tr>
-          <tr>
-            <td>Karan Mehta</td>
-            <td>karan@example.com</td>
-            <td><span class="badge badge-status-pending">Pending</span></td>
-            <td>Team Lead</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="addCustomerModal"
-    tabindex="-1"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add Customer</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Full Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="e.g. Ritika Shah"
-                />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Company</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="e.g. Nova Traders"
-                />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="e.g. name@company.com"
-                />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Phone</label>
-                <input type="text" class="form-control" placeholder="+91" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Status</label>
-                <select class="form-select">
-                  <option>Active</option>
-                  <option>Inactive</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Assigned To</label>
-                <select class="form-select">
-                  <option>Amit Kumar</option>
-                  <option>Priya Patel</option>
-                  <option>Rahul Nair</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-label-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancel
-          </button>
-          <button type="button" class="btn btn-primary">Add Customer</button>
-        </div>
+  <div class="crm-page-head">
+    <div class="d-flex align-items-center gap-3">
+      <div class="crm-page-icon"><i class="bx bx-user"></i></div>
+      <div>
+        <h4 class="mb-0">Customers</h4>
+        <span class="text-muted">Manage customer records and account activity.</span>
       </div>
     </div>
+    <div class="crm-total-pill">
+      <span class="text-muted">Total records</span>
+      <strong><asp:Literal ID="litTotal" runat="server" Text="0" /></strong>
+    </div>
   </div>
+
+  <asp:Literal ID="litMsg" runat="server" />
+
+  <div class="card crm-panel mb-4">
+    <div class="card-header crm-panel-head">
+      <h5 class="mb-0"><i class="bx bx-edit me-2"></i><asp:Label ID="lblFormTitle" runat="server" Text="Add New Customer" /></h5>
+    </div>
+    <div class="card-body">
+      <asp:Panel ID="pnlForm" runat="server" DefaultButton="btnSave">
+        <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" placeholder="e.g. Ritika Shah" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Company</label>
+          <asp:TextBox ID="txtCompany" runat="server" CssClass="form-control" placeholder="e.g. Nova Traders" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="name@company.com" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="+91 98765 43210" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">City</label>
+          <asp:TextBox ID="txtCity" runat="server" CssClass="form-control" placeholder="e.g. Ahmedabad" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Status</label>
+          <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-select">
+            <asp:ListItem Value="Active">Active</asp:ListItem>
+            <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
+            <asp:ListItem Value="Prospect">Prospect</asp:ListItem>
+          </asp:DropDownList>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Assigned To</label>
+          <asp:DropDownList ID="ddlAssignedTo" runat="server" CssClass="form-select"></asp:DropDownList>
+        </div>
+        </div>
+        <div class="mt-4 d-flex gap-2 flex-wrap">
+          <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-primary px-4" OnClick="btnSave_Click"><i class="bx bx-save me-1"></i>Save Customer</asp:LinkButton>
+          <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-label-secondary px-4" OnClick="btnCancel_Click" CausesValidation="false"><i class="bx bx-x me-1"></i>Cancel</asp:LinkButton>
+        </div>
+      </asp:Panel>
+    </div>
+  </div>
+
+  <div class="card crm-panel">
+    <div class="card-header crm-panel-head d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <h5 class="mb-0"><i class="bx bx-list-ul me-2"></i>All Customers</h5>
+      <asp:Panel ID="pnlSearch" runat="server" DefaultButton="btnSearch" CssClass="crm-search-box">
+        <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search..." />
+        <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-primary" OnClick="btnSearch_Click"><i class="bx bx-search"></i></asp:LinkButton>
+        <asp:LinkButton ID="btnReset" runat="server" CssClass="btn btn-label-secondary" OnClick="btnReset_Click"><i class="bx bx-refresh"></i></asp:LinkButton>
+      </asp:Panel>
+    </div>
+    <div class="table-responsive">
+      <asp:GridView ID="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+        CssClass="table crm-table align-middle mb-0" GridLines="None" BorderWidth="0"
+        EmptyDataText="No records found. Add your first record using the form above."
+        OnRowCommand="gv_RowCommand">
+        <Columns>
+        <asp:BoundField DataField="Id" HeaderText="#" />
+        <asp:BoundField DataField="FullName" HeaderText="Name" />
+        <asp:BoundField DataField="Company" HeaderText="Company" />
+        <asp:BoundField DataField="Email" HeaderText="Email" />
+        <asp:BoundField DataField="Phone" HeaderText="Phone" />
+        <asp:BoundField DataField="City" HeaderText="City" />
+        <asp:TemplateField HeaderText="Status">
+          <ItemTemplate>
+            <span class='badge st-<%# Eval("Status").ToString().Replace(" ", "") %>'><%# Eval("Status") %></span>
+          </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="AssignedName" HeaderText="Owner" />
+        <asp:TemplateField HeaderText="Actions">
+          <ItemTemplate>
+            <asp:LinkButton runat="server" CommandName="cmd_edt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-edit" ToolTip="Edit"><i class="bx bx-edit-alt"></i></asp:LinkButton>
+            <asp:LinkButton runat="server" CommandName="cmd_dlt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-del" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"><i class="bx bx-trash"></i></asp:LinkButton>
+          </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>
+      </asp:GridView>
+    </div>
+  </div>
+
 </asp:Content>
 
-<asp:Content
-  ID="ScriptContent"
-  ContentPlaceHolderID="ContentPlaceHolder3"
-  runat="server"
->
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
-

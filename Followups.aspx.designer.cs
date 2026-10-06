@@ -9,9 +9,38 @@
 
 namespace CRM_PROJECT
 {
-
-
     public partial class Followups
     {
+        protected global::System.Web.UI.WebControls.Literal litTotal;
+
+        protected global::System.Web.UI.WebControls.Literal litMsg;
+
+        protected global::System.Web.UI.WebControls.Label lblFormTitle;
+
+        protected global::System.Web.UI.WebControls.Panel pnlForm;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerId;
+
+        protected global::System.Web.UI.WebControls.TextBox txtFollowupDate;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlMode;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnSave;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
+
+        protected global::System.Web.UI.WebControls.Panel pnlSearch;
+
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnReset;
+
+        protected global::System.Web.UI.WebControls.GridView gv;
     }
 }

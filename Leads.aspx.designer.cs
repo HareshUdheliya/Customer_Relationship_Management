@@ -9,9 +9,44 @@
 
 namespace CRM_PROJECT
 {
-
-
     public partial class Leads
     {
+        protected global::System.Web.UI.WebControls.Literal litTotal;
+
+        protected global::System.Web.UI.WebControls.Literal litMsg;
+
+        protected global::System.Web.UI.WebControls.Label lblFormTitle;
+
+        protected global::System.Web.UI.WebControls.Panel pnlForm;
+
+        protected global::System.Web.UI.WebControls.TextBox txtLeadName;
+
+        protected global::System.Web.UI.WebControls.TextBox txtCompany;
+
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlSource;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        protected global::System.Web.UI.WebControls.TextBox txtValue;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlAssignedTo;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnSave;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
+
+        protected global::System.Web.UI.WebControls.Panel pnlSearch;
+
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
+
+        protected global::System.Web.UI.WebControls.LinkButton btnReset;
+
+        protected global::System.Web.UI.WebControls.GridView gv;
     }
 }

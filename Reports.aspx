@@ -1,128 +1,68 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="CRM_PROJECT.Reports" %>
 
-
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
   <title>Reports | CRM System</title>
-  <link rel="stylesheet" href="css/pages/reports.css" />
 </asp:Content>
 
-<asp:Content
-  ID="MainContent"
-  ContentPlaceHolderID="ContentPlaceHolder2"
-  runat="server"
->
-  <div
-    class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
-  >
-    <div>
-      <h4 class="mb-0">Reports</h4>
-      <span class="text-muted"
-        >Generate customer, employee, lead, and task reports</span
-      >
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+
+  <div class="crm-page-head">
+    <div class="d-flex align-items-center gap-3">
+      <div class="crm-page-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+      <div>
+        <h4 class="mb-0">Reports</h4>
+        <span class="text-muted">Summary of customers, leads, tasks and employees.</span>
+      </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-primary btn-sm"
-      data-bs-toggle="modal"
-      data-bs-target="#exportReportModal"
-    >
-      <i class="bx bx-download me-1"></i>Export
-    </button>
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      <asp:DropDownList ID="ddlExport" runat="server" CssClass="form-select" Width="170px">
+        <asp:ListItem Value="Customers">Customers</asp:ListItem>
+        <asp:ListItem Value="Leads">Leads</asp:ListItem>
+        <asp:ListItem Value="Tasks">Tasks</asp:ListItem>
+        <asp:ListItem Value="Followups">Follow-Ups</asp:ListItem>
+        <asp:ListItem Value="Employees">Employees</asp:ListItem>
+      </asp:DropDownList>
+      <asp:LinkButton ID="btnExport" runat="server" CssClass="btn btn-primary" OnClick="btnExport_Click"><i class="bx bx-download me-1"></i>Export CSV</asp:LinkButton>
+    </div>
   </div>
 
   <div class="row g-4 mb-4">
-    <div class="col-lg-6">
-      <div class="card h-100">
-        <div class="card-header">
-          <h6 class="mb-0">Leads Conversion by Month</h6>
-        </div>
-        <div class="card-body">
-          <div id="leadsConversionChart"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-6">
-      <div class="card h-100">
-        <div class="card-header">
-          <h6 class="mb-0">Open vs Closed Tasks</h6>
-        </div>
-        <div class="card-body">
-          <div id="tasksStatusChart"></div>
-        </div>
-      </div>
-    </div>
+    <div class="col-sm-6 col-xl-3"><div class="card crm-stat-card h-100"><div class="card-body d-flex justify-content-between align-items-center">
+      <div><p class="text-muted mb-1">Customers</p><h4 class="mb-0"><asp:Literal ID="litCustomers" runat="server" /></h4></div>
+      <div class="crm-stat-icon bg-success-subtle text-success"><i class="bx bx-user"></i></div></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card crm-stat-card h-100"><div class="card-body d-flex justify-content-between align-items-center">
+      <div><p class="text-muted mb-1">Leads</p><h4 class="mb-0"><asp:Literal ID="litLeads" runat="server" /></h4></div>
+      <div class="crm-stat-icon bg-primary-subtle text-primary"><i class="bx bx-target-lock"></i></div></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card crm-stat-card h-100"><div class="card-body d-flex justify-content-between align-items-center">
+      <div><p class="text-muted mb-1">Pipeline Value (Rs.)</p><h4 class="mb-0"><asp:Literal ID="litValue" runat="server" /></h4></div>
+      <div class="crm-stat-icon bg-warning-subtle text-warning"><i class="bx bx-rupee"></i></div></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card crm-stat-card h-100"><div class="card-body d-flex justify-content-between align-items-center">
+      <div><p class="text-muted mb-1">Conversion Rate</p><h4 class="mb-0"><asp:Literal ID="litRate" runat="server" /></h4></div>
+      <div class="crm-stat-icon bg-info-subtle text-info"><i class="bx bx-trending-up"></i></div></div></div></div>
   </div>
 
-  <div
-    class="modal fade"
-    id="exportReportModal"
-    tabindex="-1"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Export Report</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Report Type</label>
-                <select class="form-select">
-                  <option>Customer Report</option>
-                  <option>Employee Report</option>
-                  <option>Lead Report</option>
-                  <option>Task Report</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">From Date</label>
-                <input type="date" class="form-control" placeholder="" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">To Date</label>
-                <input type="date" class="form-control" placeholder="" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Format</label>
-                <select class="form-select">
-                  <option>PDF</option>
-                  <option>Excel (CSV)</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-label-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancel
-          </button>
-          <button type="button" class="btn btn-primary">Export</button>
-        </div>
-      </div>
-    </div>
+  <div class="row g-4 mb-4">
+    <div class="col-lg-6"><div class="card crm-panel h-100">
+      <div class="card-header crm-panel-head"><h5 class="mb-0"><i class="bx bx-target-lock me-2"></i>Leads by Status</h5></div>
+      <div class="card-body"><asp:Literal ID="litLeadBars" runat="server" /></div>
+    </div></div>
+    <div class="col-lg-6"><div class="card crm-panel h-100">
+      <div class="card-header crm-panel-head"><h5 class="mb-0"><i class="bx bx-task me-2"></i>Tasks by Status</h5></div>
+      <div class="card-body"><asp:Literal ID="litTaskBars" runat="server" /></div>
+    </div></div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-6"><div class="card crm-panel h-100">
+      <div class="card-header crm-panel-head"><h5 class="mb-0"><i class="bx bx-globe me-2"></i>Leads by Source</h5></div>
+      <div class="card-body"><asp:Literal ID="litSourceBars" runat="server" /></div>
+    </div></div>
+    <div class="col-lg-6"><div class="card crm-panel h-100">
+      <div class="card-header crm-panel-head"><h5 class="mb-0"><i class="bx bx-group me-2"></i>Employees by Department</h5></div>
+      <div class="card-body"><asp:Literal ID="litDeptBars" runat="server" /></div>
+    </div></div>
   </div>
 </asp:Content>
 
-<asp:Content
-  ID="ScriptContent"
-  ContentPlaceHolderID="ContentPlaceHolder3"
-  runat="server"
->
-  <script src="js/vendor/apexcharts.js"></script>
-  <script src="js/reports.js"></script>
-  <script src="js/pages/reports.js"></script>
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
-

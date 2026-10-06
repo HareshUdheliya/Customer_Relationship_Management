@@ -111,3 +111,26 @@
     });
   });
 })();
+
+/* Login page: only shows the small messages (logout / registered) */
+(function () {
+    function getQueryParam(name) {
+        return new URLSearchParams(window.location.search).get(name);
+    }
+
+    function showSuccess(message) {
+        var el = document.getElementById("loginError");
+        if (!el) return;
+        el.textContent = message;
+        el.classList.remove("d-none", "alert-danger");
+        el.classList.add("alert-success");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (getQueryParam("logout") === "1") {
+            showSuccess("You have been signed out successfully.");
+        } else if (getQueryParam("registered") === "1") {
+            showSuccess("Account created successfully! Please sign in.");
+        }
+    });
+})();

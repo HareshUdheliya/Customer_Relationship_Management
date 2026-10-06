@@ -4,115 +4,99 @@
   <title>User Management | CRM System</title>
 </asp:Content>
 
-<asp:Content
-  ID="MainContent"
-  ContentPlaceHolderID="ContentPlaceHolder2"
-  runat="server"
->
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h4 class="mb-0">User Management</h4>
-      <span class="text-muted"
-        >Manage system users, roles, and access.</span
-      >
-    </div>
-    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addUserModal">
-      <i class="bx bx-user-plus me-1"></i> Add User
-    </button>
-  </div>
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-  <div class="card">
-    <div class="card-header border-bottom">
-        <h5 class="card-title mb-0">System Users</h5>
-    </div>
-    <div class="card-body pt-3">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><div class="d-flex align-items-center"><div class="avatar avatar-sm me-2"><span class="avatar-initial rounded-circle bg-primary">A</span></div><strong>Admin User</strong></div></td>
-                        <td>admin@example.com</td>
-                        <td><span class="badge bg-danger-subtle text-danger">Administrator</span></td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-sm btn-outline-secondary" disabled><i class="bx bx-edit"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="d-flex align-items-center"><div class="avatar avatar-sm me-2"><span class="avatar-initial rounded-circle bg-info">J</span></div><strong>John Doe</strong></div></td>
-                        <td>john.doe@example.com</td>
-                        <td><span class="badge bg-info-subtle text-info">User</span></td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-sm btn-outline-primary"><i class="bx bx-edit"></i></button>
-                            <button type="button" class="btn btn-icon btn-sm btn-outline-danger"><i class="bx bx-trash"></i></button>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td><div class="d-flex align-items-center"><div class="avatar avatar-sm me-2"><span class="avatar-initial rounded-circle bg-warning">S</span></div><strong>Sarah Smith</strong></div></td>
-                        <td>sarah.s@example.com</td>
-                        <td><span class="badge bg-info-subtle text-info">User</span></td>
-                        <td><span class="badge bg-secondary">Inactive</span></td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-sm btn-outline-primary"><i class="bx bx-edit"></i></button>
-                            <button type="button" class="btn btn-icon btn-sm btn-outline-danger"><i class="bx bx-trash"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-  </div>
-
-  <!-- Add User Modal -->
-  <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col mb-3">
-              <label for="nameBasic" class="form-label">Full Name</label>
-              <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name">
-            </div>
-          </div>
-          <div class="row g-2">
-            <div class="col mb-0">
-              <label for="emailBasic" class="form-label">Email</label>
-              <input type="email" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx">
-            </div>
-            <div class="col mb-0">
-              <label for="roleBasic" class="form-label">Role</label>
-              <select id="roleBasic" class="form-select">
-                <option value="user">User</option>
-                <option value="admin">Administrator</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer mt-2">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+  <div class="crm-page-head">
+    <div class="d-flex align-items-center gap-3">
+      <div class="crm-page-icon"><i class="bx bx-user-circle"></i></div>
+      <div>
+        <h4 class="mb-0">User Management</h4>
+        <span class="text-muted">Create login accounts and control who is an admin.</span>
       </div>
     </div>
+    <div class="crm-total-pill">
+      <span class="text-muted">Total records</span>
+      <strong><asp:Literal ID="litTotal" runat="server" Text="0" /></strong>
+    </div>
   </div>
+
+  <asp:Literal ID="litMsg" runat="server" />
+
+  <div class="card crm-panel mb-4">
+    <div class="card-header crm-panel-head">
+      <h5 class="mb-0"><i class="bx bx-edit me-2"></i><asp:Label ID="lblFormTitle" runat="server" Text="Add New User" /></h5>
+    </div>
+    <div class="card-body">
+      <asp:Panel ID="pnlForm" runat="server" DefaultButton="btnSave">
+        <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" placeholder="e.g. Priya Patel" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="name@company.com" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="+91 98765 43210" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Role</label>
+          <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-select">
+            <asp:ListItem Value="user">User</asp:ListItem>
+            <asp:ListItem Value="admin">Admin</asp:ListItem>
+          </asp:DropDownList>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Password <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Leave blank to keep old password (when editing)" />
+        </div>
+        </div>
+        <div class="mt-4 d-flex gap-2 flex-wrap">
+          <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-primary px-4" OnClick="btnSave_Click"><i class="bx bx-save me-1"></i>Save User</asp:LinkButton>
+          <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-label-secondary px-4" OnClick="btnCancel_Click" CausesValidation="false"><i class="bx bx-x me-1"></i>Cancel</asp:LinkButton>
+        </div>
+      </asp:Panel>
+    </div>
+  </div>
+
+  <div class="card crm-panel">
+    <div class="card-header crm-panel-head d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <h5 class="mb-0"><i class="bx bx-list-ul me-2"></i>All User Management</h5>
+      <asp:Panel ID="pnlSearch" runat="server" DefaultButton="btnSearch" CssClass="crm-search-box">
+        <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search..." />
+        <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-primary" OnClick="btnSearch_Click"><i class="bx bx-search"></i></asp:LinkButton>
+        <asp:LinkButton ID="btnReset" runat="server" CssClass="btn btn-label-secondary" OnClick="btnReset_Click"><i class="bx bx-refresh"></i></asp:LinkButton>
+      </asp:Panel>
+    </div>
+    <div class="table-responsive">
+      <asp:GridView ID="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+        CssClass="table crm-table align-middle mb-0" GridLines="None" BorderWidth="0"
+        EmptyDataText="No records found. Add your first record using the form above."
+        OnRowCommand="gv_RowCommand">
+        <Columns>
+        <asp:BoundField DataField="Id" HeaderText="#" />
+        <asp:BoundField DataField="FullName" HeaderText="Name" />
+        <asp:BoundField DataField="Email" HeaderText="Email" />
+        <asp:BoundField DataField="Phone" HeaderText="Phone" />
+        <asp:TemplateField HeaderText="Role">
+          <ItemTemplate>
+            <span class='badge st-<%# Eval("Role").ToString().Replace(" ", "") %>'><%# Eval("Role") %></span>
+          </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Actions">
+          <ItemTemplate>
+            <asp:LinkButton runat="server" CommandName="cmd_edt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-edit" ToolTip="Edit"><i class="bx bx-edit-alt"></i></asp:LinkButton>
+            <asp:LinkButton runat="server" CommandName="cmd_dlt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-del" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"><i class="bx bx-trash"></i></asp:LinkButton>
+          </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>
+      </asp:GridView>
+    </div>
+  </div>
+
 </asp:Content>
-<asp:Content
-  ID="ScriptContent"
-  ContentPlaceHolderID="ContentPlaceHolder3"
-  runat="server"
->
+
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
