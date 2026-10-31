@@ -15,8 +15,7 @@ namespace CRM_PROJECT
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // already logged in - go to dashboard
-            // (but not when user just clicked logout)
+           
             if (Session["UserId"] != null)
             {
                 string role = "user";
@@ -28,9 +27,9 @@ namespace CRM_PROJECT
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim().Replace("'", "''");
-            string password = txtPassword.Text.Replace("'", "''");
+            string password = Helper.Hash(txtPassword.Text);  
 
-            if (email == "" || password == "")
+            if (email == "" || txtPassword.Text == "")
             {
                 litMsg.Text = "<div class='alert alert-warning'>Please enter email and password.</div>";
                 return;

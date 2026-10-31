@@ -40,6 +40,12 @@ namespace CRM_PROJECT
             return s.Trim().Replace("'", "''");
         }
 
+        bool isAdmin()
+        {
+            if (Session["Role"] == null) return false;
+            return Session["Role"].ToString().ToLower() == "admin";
+        }
+
         // runs insert / update / delete query
         void runQuery(string query)
         {
@@ -74,6 +80,15 @@ namespace CRM_PROJECT
             runQuery("insert into ActivityLog (UserName, Action) values ('" + fix(user) + "', '" + fix(text) + "')");
         }
 
+        // normal user can open only his own records
+        bool canAccess(int id)
+        {
+            if (isAdmin()) return true;
+            string uid = Session["UserId"].ToString();
+            int n = getCount("select count(*) from Followups f where f.Id = " + id + " and f.CustomerId in (select Id from Customers where AssignedTo = " + uid + ")");
+            return n > 0;
+        }
+
         void setDropdown(DropDownList ddl, string value)
         {
             ddl.ClearSelection();
@@ -87,8 +102,14 @@ namespace CRM_PROJECT
 
         void fillDropdowns()
         {
+            string sql;
+
+            sql = "select Id, FullName from Customers order by FullName";
+            if (!isAdmin())
+                sql = "select Id, FullName from Customers where AssignedTo = " + Session["UserId"].ToString() + " order by FullName";
+
             con = new SqlConnection(conStr);
-            da = new SqlDataAdapter("select Id, FullName from Customers order by FullName", con);
+            da = new SqlDataAdapter(sql, con);
             ds = new DataSet();
             da.Fill(ds);
             ddlCustomerId.DataSource = ds;
@@ -115,11 +136,22 @@ namespace CRM_PROJECT
         void fillGrid()
         {
             string search = fix(txtSearch.Text);
+            string uid = Session["UserId"].ToString();
+            string where = "";
+            if (!isAdmin())
+                where = "(f.CustomerId in (select Id from Customers where AssignedTo = " + uid + "))";
 
             string query = "select f.*, c.FullName as CustomerName from Followups f left join Customers c on f.CustomerId = c.Id";
 
             if (search != "")
-                query += " where c.FullName like '%" + search + "%' or f.Mode like '%" + search + "%' or f.Status like '%" + search + "%' or f.Remarks like '%" + search + "%'";
+            {
+                if (where != "")
+                    where += " and ";
+                where += "(c.FullName like '%" + search + "%' or f.Mode like '%" + search + "%' or f.Status like '%" + search + "%' or f.Remarks like '%" + search + "%')";
+            }
+
+            if (where != "")
+                query += " where " + where;
 
             query += " order by f.Id desc";
 
@@ -265,6 +297,12 @@ namespace CRM_PROJECT
             try
             {
                 int id = Convert.ToInt32(e.CommandArgument);
+
+                if (!canAccess(id))
+                {
+                    showMsg("You can only manage your own records.", "warning");
+                    return;
+                }
 
                 if (e.CommandName == "cmd_edt")
                 {

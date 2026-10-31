@@ -92,10 +92,12 @@
     <Content Include="css\vendor\demo.css" />
     <Content Include="css\vendor\iconify-icons.css" />
     <Content Include="css\vendor\perfect-scrollbar.css" />
+    <Content Include="CustomerDetails.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Documents.aspx" />
     <Content Include="Employees.aspx" />
+    <Content Include="FollowupCalendar.aspx" />
     <Content Include="Followups.aspx" />
     <Content Include="js\auth.js" />
     <Content Include="js\dashboard.js" />
@@ -124,6 +126,7 @@
     <Content Include="Leads.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Notes.aspx" />
+    <Content Include="Pipeline.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Reports.aspx" />
@@ -139,6 +142,13 @@
     </Compile>
     <Compile Include="ActivityLog.aspx.designer.cs">
       <DependentUpon>ActivityLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
@@ -168,6 +178,13 @@
     <Compile Include="Employees.aspx.designer.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FollowupCalendar.aspx.cs">
+      <DependentUpon>FollowupCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowupCalendar.aspx.designer.cs">
+      <DependentUpon>FollowupCalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Followups.aspx.cs">
       <DependentUpon>Followups.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +192,7 @@
     <Compile Include="Followups.aspx.designer.cs">
       <DependentUpon>Followups.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="Leads.aspx.cs">
       <DependentUpon>Leads.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,6 +213,13 @@
     </Compile>
     <Compile Include="Notes.aspx.designer.cs">
       <DependentUpon>Notes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pipeline.aspx.cs">
+      <DependentUpon>Pipeline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pipeline.aspx.designer.cs">
+      <DependentUpon>Pipeline.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

@@ -33,11 +33,17 @@ namespace CRM_PROJECT
             string fullName = fix(txtFullName.Text);
             string email = fix(txtEmail.Text);
             string phone = fix(txtPhone.Text);
-            string password = fix(txtPassword.Text);
+            string password = Helper.Hash(txtPassword.Text);   // store hash, not the real password
 
-            if (fullName == "" || email == "" || password == "")
+            if (fullName == "" || email == "" || txtPassword.Text == "")
             {
                 showMsg("Please fill all required fields.", "warning");
+                return;
+            }
+
+            if (txtPassword.Text.Length < 6)
+            {
+                showMsg("Password must be at least 6 characters.", "warning");
                 return;
             }
 
@@ -58,7 +64,7 @@ namespace CRM_PROJECT
                 con = new SqlConnection(conStr);
                 con.Open();
 
-                
+                // check email already used
                 cmd = new SqlCommand("select count(*) from Users where Email = '" + email + "'", con);
                 int found = Convert.ToInt32(cmd.ExecuteScalar());
 

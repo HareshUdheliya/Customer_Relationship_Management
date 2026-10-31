@@ -36,17 +36,13 @@ namespace CRM_PROJECT
             }
         }
 
-        // ---------------------------------------------------------------
-        // Small helper methods
-        // ---------------------------------------------------------------
-
-        // makes text safe for a simple query (handles single quote like O'Brien)
+       
         string fix(string s)
         {
             return s.Trim().Replace("'", "''");
         }
 
-        // runs insert / update / delete query
+       
         void runQuery(string query)
         {
             con = new SqlConnection(conStr);
@@ -56,7 +52,7 @@ namespace CRM_PROJECT
             con.Close();
         }
 
-        // returns single number from a query like select count(*)
+     
         int getCount(string query)
         {
             con = new SqlConnection(conStr);
@@ -100,9 +96,7 @@ namespace CRM_PROJECT
             if (item != null) item.Selected = true;
         }
 
-        // ---------------------------------------------------------------
-        // Fill dropdowns / grid / form
-        // ---------------------------------------------------------------
+       
 
         void fieldClear()
         {
@@ -162,10 +156,6 @@ namespace CRM_PROJECT
                 setDropdown(ddlStatus, row["Status"].ToString());
             }
         }
-
-        // ---------------------------------------------------------------
-        // Validation + Insert + Update + Delete
-        // ---------------------------------------------------------------
 
         bool validateForm()
         {
@@ -234,9 +224,7 @@ namespace CRM_PROJECT
             showMsg("Employee deleted successfully.", "success");
         }
 
-        // ---------------------------------------------------------------
-        // Button events
-        // ---------------------------------------------------------------
+       
 
         protected void btnSave_Click(object sender, EventArgs e)
         {

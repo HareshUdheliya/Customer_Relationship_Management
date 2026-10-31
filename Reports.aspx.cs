@@ -45,7 +45,6 @@ namespace CRM_PROJECT
             return n;
         }
 
-        // builds the bar chart html for a column of a table
         string makeBars(string table, string column, string[] names, string color)
         {
             int total = getCount("select count(*) from " + table);
@@ -90,7 +89,6 @@ namespace CRM_PROJECT
             litDeptBars.Text = makeBars("Employees", "Department", new string[] { "Sales", "Marketing", "Support", "HR", "IT", "Finance", "Operations" }, "");
         }
 
-        // makes one csv cell safe
         string csvCell(string s)
         {
             return "\"" + s.Replace("\"", "\"\"") + "\"";

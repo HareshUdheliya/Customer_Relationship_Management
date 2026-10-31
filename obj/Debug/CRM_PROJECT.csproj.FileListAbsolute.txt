@@ -57,6 +57,8 @@ C:\Users\hares\source\repos\CRM_PROJECT\bin\Microsoft.CodeDom.Providers.DotNetCo
 C:\Users\hares\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJ.B36ED48B.Up2Date
 C:\Users\hares\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.dll
 C:\Users\hares\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.pdb
+C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.csproj.AssemblyReference.cache
+C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.csproj.CoreCompileInputs.cache
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\CRM_PROJECT.dll.config
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\CRM_PROJECT.dll
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\CRM_PROJECT.pdb
@@ -111,8 +113,6 @@ C:\Users\HSC\source\repos\CRM_PROJECT\bin\roslyn\VBCSCompiler.exe
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\HSC\source\repos\CRM_PROJECT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.csproj.AssemblyReference.cache
-C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.csproj.CoreCompileInputs.cache
 C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJ.B36ED48B.Up2Date
 C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.dll
 C:\Users\HSC\source\repos\CRM_PROJECT\obj\Debug\CRM_PROJECT.pdb

@@ -58,6 +58,31 @@ namespace CRM_PROJECT
             runQuery("insert into ActivityLog (UserName, Action) values ('" + fix(user) + "', '" + fix(text) + "')");
         }
 
+        bool isAdmin()
+        {
+            if (Session["Role"] == null) return false;
+            return Session["Role"].ToString().ToLower() == "admin";
+        }
+
+        int getCount(string query)
+        {
+            con = new SqlConnection(conStr);
+            cmd = new SqlCommand(query, con);
+            con.Open();
+            int n = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return n;
+        }
+
+        // normal user can open only documents of his own customers
+        bool canAccess(int id)
+        {
+            if (isAdmin()) return true;
+            string uid = Session["UserId"].ToString();
+            int n = getCount("select count(*) from Documents d where d.Id = " + id + " and d.CustomerId in (select Id from Customers where AssignedTo = " + uid + ")");
+            return n > 0;
+        }
+
         // folder where files are saved (Uploads folder in the project)
         string uploadFolder()
         {
@@ -69,8 +94,12 @@ namespace CRM_PROJECT
 
         void fillDropdowns()
         {
+            string sql = "select Id, FullName from Customers order by FullName";
+            if (!isAdmin())
+                sql = "select Id, FullName from Customers where AssignedTo = " + Session["UserId"].ToString() + " order by FullName";
+
             con = new SqlConnection(conStr);
-            da = new SqlDataAdapter("select Id, FullName from Customers order by FullName", con);
+            da = new SqlDataAdapter(sql, con);
             ds = new DataSet();
             da.Fill(ds);
             ddlCustomerId.DataSource = ds;
@@ -94,13 +123,25 @@ namespace CRM_PROJECT
         void fillGrid()
         {
             string search = fix(txtSearch.Text);
+            string uid = Session["UserId"].ToString();
 
             string query = "select d.*, c.FullName as CustomerName, "
                 + "cast(d.FileSize / 1024 as varchar(20)) + ' KB' as FileSizeText "
                 + "from Documents d left join Customers c on d.CustomerId = c.Id";
 
+            string where = "";
+            if (!isAdmin())
+                where = "(d.CustomerId in (select Id from Customers where AssignedTo = " + uid + "))";
+
             if (search != "")
-                query += " where d.DocName like '%" + search + "%' or c.FullName like '%" + search + "%' or d.DocType like '%" + search + "%'";
+            {
+                if (where != "")
+                    where += " and ";
+                where += "(d.DocName like '%" + search + "%' or c.FullName like '%" + search + "%' or d.DocType like '%" + search + "%')";
+            }
+
+            if (where != "")
+                query += " where " + where;
 
             query += " order by d.Id desc";
 
@@ -270,6 +311,12 @@ namespace CRM_PROJECT
             try
             {
                 int id = Convert.ToInt32(e.CommandArgument);
+
+                if (!canAccess(id))
+                {
+                    showMsg("You can only manage your own records.", "warning");
+                    return;
+                }
 
                 if (e.CommandName == "cmd_edt")
                 {

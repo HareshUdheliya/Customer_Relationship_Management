@@ -107,9 +107,9 @@ namespace CRM_PROJECT
 
             con = new SqlConnection(conStr);
 
-            query = "UPDATE Users SET FullName = '" + name +
-                    "', Email = '" + email +
-                    "', Phone = '" + phone +
+            query = "UPDATE Users SET FullName = '" + name.Replace("'", "''") +
+                    "', Email = '" + email.Replace("'", "''") +
+                    "', Phone = '" + phone.Replace("'", "''") +
                     "' WHERE Id = " + userId;
 
             cmd = new SqlCommand(query, con);
@@ -155,6 +155,14 @@ namespace CRM_PROJECT
                 return;
             }
 
+            if (newPassword.Length < 6)
+            {
+                litPasswordMsg.Text =
+                    "<div class=\"alert alert-warning\">New password must be at least 6 characters.</div>";
+
+                return;
+            }
+
             con = new SqlConnection(conStr);
 
             query = "SELECT Password FROM Users WHERE Id = " + userId;
@@ -168,7 +176,7 @@ namespace CRM_PROJECT
             {
                 oldPassword = ds.Tables[0].Rows[0]["Password"].ToString();
 
-                if (oldPassword != currentPassword)
+                if (oldPassword != Helper.Hash(currentPassword))   // compare hash
                 {
                     litPasswordMsg.Text =
                         "<div class=\"alert alert-danger\">Current password is incorrect.</div>";
@@ -177,7 +185,7 @@ namespace CRM_PROJECT
                 }
             }
 
-            query = "UPDATE Users SET Password = '" + newPassword +
+            query = "UPDATE Users SET Password = '" + Helper.Hash(newPassword) +
                     "' WHERE Id = " + userId;
 
             cmd = new SqlCommand(query, con);

@@ -23,13 +23,12 @@ namespace CRM_PROJECT
                 return;
             }
 
-            string role = "user";
-            if (Session["Role"] != null) role = Session["Role"].ToString();
-            if (role.ToLower() != "admin")
+            if (!isAdmin())
             {
                 Response.Redirect("UserDashboard.aspx");
                 return;
             }
+
             if (!IsPostBack)
             {
                 fillGrid();
@@ -44,6 +43,12 @@ namespace CRM_PROJECT
         string fix(string s)
         {
             return s.Trim().Replace("'", "''");
+        }
+
+        bool isAdmin()
+        {
+            if (Session["Role"] == null) return false;
+            return Session["Role"].ToString().ToLower() == "admin";
         }
 
         // runs insert / update / delete query
@@ -107,11 +112,19 @@ namespace CRM_PROJECT
         void fillGrid()
         {
             string search = fix(txtSearch.Text);
+            string where = "";
 
             string query = "select u.Id, u.FullName, u.Email, u.Phone, u.Role from Users u";
 
             if (search != "")
-                query += " where u.FullName like '%" + search + "%' or u.Email like '%" + search + "%' or u.Phone like '%" + search + "%' or u.Role like '%" + search + "%'";
+            {
+                if (where != "")
+                    where += " and ";
+                where += "(u.FullName like '%" + search + "%' or u.Email like '%" + search + "%' or u.Phone like '%" + search + "%' or u.Role like '%" + search + "%')";
+            }
+
+            if (where != "")
+                query += " where " + where;
 
             query += " order by u.Id desc";
 
@@ -164,6 +177,11 @@ namespace CRM_PROJECT
                 showMsg("Password is required.", "warning");
                 return false;
             }
+            if (txtPassword.Text != "" && txtPassword.Text.Length < 6)
+            {
+                showMsg("Password must be at least 6 characters.", "warning");
+                return false;
+            }
             string checkQuery = "select count(*) from Users where Email = '" + fix(txtEmail.Text) + "'";
             if (ViewState["id"] != null)
                 checkQuery += " and Id <> " + ViewState["id"];
@@ -183,7 +201,7 @@ namespace CRM_PROJECT
                 + "'" + fix(txtEmail.Text) + "'" + ", "
                 + "'" + fix(txtPhone.Text) + "'" + ", "
                 + "'" + fix(ddlRole.SelectedValue) + "'" + ", "
-                + "'" + fix(txtPassword.Text) + "'"
+                + "'" + Helper.Hash(txtPassword.Text) + "'"
                 + ")";
 
             runQuery(query);
@@ -194,7 +212,7 @@ namespace CRM_PROJECT
         {
             string pwdPart = "";
             if (txtPassword.Text != "")
-                pwdPart = ", Password='" + fix(txtPassword.Text) + "'";
+                pwdPart = ", Password='" + Helper.Hash(txtPassword.Text) + "'";
 
             string query = "update Users set "
                 + "FullName='" + fix(txtFullName.Text) + "'" + ", "

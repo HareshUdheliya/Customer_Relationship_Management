@@ -75,7 +75,10 @@ namespace CRM_PROJECT
             string followWhere = "Status = 'Pending' and FollowupDate <= GETDATE()";
 
             if (!isAdmin)
+            {
                 taskWhere += " and AssignedTo = " + userId;
+                followWhere += " and CustomerId in (select Id from Customers where AssignedTo = " + userId + ")";
+            }
 
             int pendingTasks = 0;
             int dueFollowups = 0;

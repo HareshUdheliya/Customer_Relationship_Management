@@ -38,7 +38,6 @@
             Don't have an account?
             <a href="Register.aspx" class="fw-bold login-register-link">Register Now</a>
           </p>
-          <p class="mb-0 text-muted small">Demo admin: admin@gmail.com / admin123</p>
         </div>
       </div>
     </div>

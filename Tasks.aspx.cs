@@ -26,6 +26,14 @@ namespace CRM_PROJECT
             if (!IsPostBack)
             {
                 fillDropdowns();
+
+                // normal user: record always belongs to himself
+                if (!isAdmin())
+                {
+                    setDropdown(ddlAssignedTo, Session["UserId"].ToString());
+                    ddlAssignedTo.Enabled = false;
+                }
+
                 fillGrid();
             }
         }
@@ -38,6 +46,12 @@ namespace CRM_PROJECT
         string fix(string s)
         {
             return s.Trim().Replace("'", "''");
+        }
+
+        bool isAdmin()
+        {
+            if (Session["Role"] == null) return false;
+            return Session["Role"].ToString().ToLower() == "admin";
         }
 
         // runs insert / update / delete query
@@ -74,6 +88,22 @@ namespace CRM_PROJECT
             runQuery("insert into ActivityLog (UserName, Action) values ('" + fix(user) + "', '" + fix(text) + "')");
         }
 
+        // normal user can open only his own records
+        bool canAccess(int id)
+        {
+            if (isAdmin()) return true;
+            string uid = Session["UserId"].ToString();
+            int n = getCount("select count(*) from Tasks t where t.Id = " + id + " and t.AssignedTo = " + uid + "");
+            return n > 0;
+        }
+
+        // admin can choose the owner, normal user is always the owner
+        string ownerId(DropDownList ddl)
+        {
+            if (isAdmin()) return ddl.SelectedValue;
+            return Session["UserId"].ToString();
+        }
+
         void setDropdown(DropDownList ddl, string value)
         {
             ddl.ClearSelection();
@@ -87,8 +117,14 @@ namespace CRM_PROJECT
 
         void fillDropdowns()
         {
+            string sql;
+
+            sql = "select Id, FullName from Users order by FullName";
+            if (!isAdmin())
+                sql = "select Id, FullName from Users where Id = " + Session["UserId"].ToString();
+
             con = new SqlConnection(conStr);
-            da = new SqlDataAdapter("select Id, FullName from Users order by FullName", con);
+            da = new SqlDataAdapter(sql, con);
             ds = new DataSet();
             da.Fill(ds);
             ddlAssignedTo.DataSource = ds;
@@ -105,7 +141,10 @@ namespace CRM_PROJECT
             txtDueDate.Text = "";
             ddlPriority.SelectedIndex = 0;
             ddlStatus.SelectedIndex = 0;
-            ddlAssignedTo.SelectedIndex = 0;
+            if (isAdmin())
+                ddlAssignedTo.SelectedIndex = 0;
+            else
+                setDropdown(ddlAssignedTo, Session["UserId"].ToString());
             txtDescription.Text = "";
 
             ViewState["id"] = null;
@@ -116,11 +155,22 @@ namespace CRM_PROJECT
         void fillGrid()
         {
             string search = fix(txtSearch.Text);
+            string uid = Session["UserId"].ToString();
+            string where = "";
+            if (!isAdmin())
+                where = "(t.AssignedTo = " + uid + ")";
 
             string query = "select t.*, u.FullName as AssignedName from Tasks t left join Users u on t.AssignedTo = u.Id";
 
             if (search != "")
-                query += " where t.Title like '%" + search + "%' or t.Description like '%" + search + "%' or t.Priority like '%" + search + "%' or t.Status like '%" + search + "%' or u.FullName like '%" + search + "%'";
+            {
+                if (where != "")
+                    where += " and ";
+                where += "(t.Title like '%" + search + "%' or t.Description like '%" + search + "%' or t.Priority like '%" + search + "%' or t.Status like '%" + search + "%' or u.FullName like '%" + search + "%')";
+            }
+
+            if (where != "")
+                query += " where " + where;
 
             query += " order by t.Id desc";
 
@@ -181,7 +231,7 @@ namespace CRM_PROJECT
                 + "'" + fix(txtDueDate.Text) + "'" + ", "
                 + "'" + fix(ddlPriority.SelectedValue) + "'" + ", "
                 + "'" + fix(ddlStatus.SelectedValue) + "'" + ", "
-                + ddlAssignedTo.SelectedValue + ", "
+                + ownerId(ddlAssignedTo) + ", "
                 + "'" + fix(txtDescription.Text) + "'"
                 + ")";
 
@@ -196,7 +246,7 @@ namespace CRM_PROJECT
                 + "DueDate='" + fix(txtDueDate.Text) + "'" + ", "
                 + "Priority='" + fix(ddlPriority.SelectedValue) + "'" + ", "
                 + "Status='" + fix(ddlStatus.SelectedValue) + "'" + ", "
-                + "AssignedTo=" + ddlAssignedTo.SelectedValue + ", "
+                + "AssignedTo=" + ownerId(ddlAssignedTo) + ", "
                 + "Description='" + fix(txtDescription.Text) + "'"
                 + " where Id = " + ViewState["id"];
 
@@ -269,6 +319,12 @@ namespace CRM_PROJECT
             try
             {
                 int id = Convert.ToInt32(e.CommandArgument);
+
+                if (!canAccess(id))
+                {
+                    showMsg("You can only manage your own records.", "warning");
+                    return;
+                }
 
                 if (e.CommandName == "cmd_edt")
                 {

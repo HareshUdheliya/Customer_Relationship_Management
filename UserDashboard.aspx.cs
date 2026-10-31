@@ -30,7 +30,7 @@ namespace CRM_PROJECT
                 litLeads.Text = getCount("select count(*) from Leads where AssignedTo = " + userId).ToString();
                 litTasks.Text = getCount("select count(*) from Tasks where Status <> 'Completed' and AssignedTo = " + userId).ToString();
                 litCustomers.Text = getCount("select count(*) from Customers where AssignedTo = " + userId).ToString();
-                litFollowups.Text = getCount("select count(*) from Followups where Status = 'Pending'").ToString();
+                litFollowups.Text = getCount("select count(*) from Followups where Status = 'Pending' and CustomerId in (select Id from Customers where AssignedTo = " + userId + ")").ToString();
 
                 con = new SqlConnection(conStr);
                 da = new SqlDataAdapter("select top 8 * from Tasks where AssignedTo = " + userId + " and Status <> 'Completed' order by DueDate", con);

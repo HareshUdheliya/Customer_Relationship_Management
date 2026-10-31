@@ -11,7 +11,7 @@
       <div class="crm-page-icon"><i class="bx bx-user-circle"></i></div>
       <div>
         <h4 class="mb-0">User Management</h4>
-        <span class="text-muted">Create login accounts and control who is an admin.</span>
+        <span class="text-muted">Create login accounts, reset passwords and control who is an admin.</span>
       </div>
     </div>
     <div class="crm-total-pill">
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">Password <span class="text-danger">*</span></label>
-          <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Leave blank to keep old password (when editing)" />
+          <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Min 6 chars. Leave blank to keep old password (when editing)" />
         </div>
         </div>
         <div class="mt-4 d-flex gap-2 flex-wrap">

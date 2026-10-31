@@ -99,6 +99,7 @@
         <asp:BoundField DataField="AssignedName" HeaderText="Owner" />
         <asp:TemplateField HeaderText="Actions">
           <ItemTemplate>
+            <a href='CustomerDetails.aspx?id=<%# Eval("Id") %>' class="crm-act crm-act-view" title="View Customer 360"><i class="bx bx-show"></i></a>
             <asp:LinkButton runat="server" CommandName="cmd_edt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-edit" ToolTip="Edit"><i class="bx bx-edit-alt"></i></asp:LinkButton>
             <asp:LinkButton runat="server" CommandName="cmd_dlt" CommandArgument='<%# Eval("Id") %>' CssClass="crm-act crm-act-del" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');"><i class="bx bx-trash"></i></asp:LinkButton>
           </ItemTemplate>

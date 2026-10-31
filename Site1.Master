@@ -44,8 +44,10 @@
                             <li class="menu-header small text-uppercase"><span class="menu-header-text">CRM Modules</span></li>
                             <li class="menu-item"><a href="Customers.aspx" class="menu-link"><i class="menu-icon bx bx-user"></i><div>Customers</div></a></li>
                             <li class="menu-item"><a href="Leads.aspx" class="menu-link"><i class="menu-icon bx bx-target-lock"></i><div>Leads</div></a></li>
+                            <li class="menu-item"><a href="Pipeline.aspx" class="menu-link"><i class="menu-icon bx bx-columns"></i><div>Lead Pipeline</div></a></li>
                             <li class="menu-item"><a href="Tasks.aspx" class="menu-link"><i class="menu-icon bx bx-task"></i><div>Tasks</div></a></li>
                             <li class="menu-item"><a href="Followups.aspx" class="menu-link"><i class="menu-icon bx bx-calendar-check"></i><div>Follow-Ups</div></a></li>
+                            <li class="menu-item"><a href="FollowupCalendar.aspx" class="menu-link"><i class="menu-icon bx bx-calendar"></i><div>Follow-Up Calendar</div></a></li>
                             <li class="menu-item"><a href="Notes.aspx" class="menu-link"><i class="menu-icon bx bx-note"></i><div>Customer Notes</div></a></li>
                             <li class="menu-item"><a href="Documents.aspx" class="menu-link"><i class="menu-icon bx bx-folder"></i><div>Documents</div></a></li>
 
